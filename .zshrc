@@ -1,14 +1,33 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/simonopheim/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="wedisagree"
+
+# POWERLINE FONT
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status node_version background_jobs history time)
+
+#POWERLEVEL9K_TIME_FORMAT="%D{%H:%M %m.%d.%y}"
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
+POWERLEVEL9K_STATUS_VERBOSE=false
+
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_NODE_VERSION_BACKGROUND='022'
+
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,19 +87,31 @@ ZSH_THEME="wedisagree"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+    npm
+    docker
+#    zsh-autosuggestions
+#    zsh-completions
+)
+
+#source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# MSSQL
+path+=/opt/mssql-tools/bin
+
+# Rust
+path+=~/.cargo/bin
+
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,12 +135,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias cdh="cd ~/Projects"
+alias sqlserver-start="service mssql-server start"
+alias sqlserver-status="service mssql-server status"
+alias sqlserver-stop="service mssql-server stop"
 
 alias aptup="sudo apt update && sudo apt upgrade"
 
+alias cdh="cd ~/Projects"
 
-# Starts homebrew..
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# Opt out of user metrics to AWS
-SAM_CLI_TELEMETRY=0export PATH=/home/simonopheim/.pyenv/versions/3.7.2/bin:$PATH
+export PATH=/home/simon/.pyenv/versions/3.7.2/bin:$PATH
