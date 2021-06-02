@@ -144,3 +144,12 @@ alias aptup="sudo apt update && sudo apt upgrade"
 alias cdh="cd ~/Projects"
 
 export PATH=/home/simon/.pyenv/versions/3.7.2/bin:$PATH
+
+# Opt out of SAM telemetry
+SAM_CLI_TELEMETRY=0
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/simon/google-cloud-sdk/path.zsh.inc' ]; then . '/home/simon/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/simon/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/simon/google-cloud-sdk/completion.zsh.inc'; fi

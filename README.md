@@ -11,3 +11,6 @@ Done with `ln -nfs /path/file /path/file`
 - nvm for node management
 - oh my zsh
 - git
+- AWS SAM
+- python 3
+- google cloud sdk
