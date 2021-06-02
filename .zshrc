@@ -91,6 +91,7 @@ plugins=(
     git
     npm
     docker
+    docker-compose
 #    zsh-autosuggestions
 #    zsh-completions
 )
@@ -142,6 +143,8 @@ alias sqlserver-stop="service mssql-server stop"
 alias aptup="sudo apt update && sudo apt upgrade"
 
 alias cdh="cd ~/Projects"
+
+alias zshconfig="code ~/.zshrc"
 
 export PATH=/home/simon/.pyenv/versions/3.7.2/bin:$PATH
 
