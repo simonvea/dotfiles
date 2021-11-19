@@ -6,8 +6,19 @@ Collection of various configurations
 
 Done with `ln -nfs /path/file /path/file`
 
-## List of dependencies
+## Dependencies
 
-- nvm for node management
+### Tooling
+
 - oh my zsh
 - git
+- homebrew
+- SAM cli
+- AWS cli
+- Visual studio code
+
+### Development
+
+- nvm (Node)
+- python
+- dotnet sdk and runtime
